@@ -2,18 +2,25 @@
 
 public class Main : MonoBehaviour
 {
-    void Start()
+    [SerializeField]
+    private int _initialBlood;
+
+    [SerializeField]
+    private string _location;
+
+    [SerializeField]
+    private string _nextScene;
+
+    [SerializeField]
+    private string _prevScene;
+
+    public void Awake()
     {
+        var ui = FindObjectOfType<UI>();
+        ui.SetLocation(_location);
 
-    }
-
-    void Update()
-    {
-
-    }
-
-    private void CreateWall(int width, int height)
-    {
-
+        var vampire = FindObjectOfType<Vampire>();
+        vampire.OnBloodChange += ui.SetBlood;
+        vampire.Blood = 5;
     }
 }

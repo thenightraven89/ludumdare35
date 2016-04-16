@@ -16,6 +16,15 @@ public class Vampire : MonoBehaviour
     /// </summary>
     private int _blood;
 
+    [SerializeField]
+    private GameObject _vampireBody;
+
+    [SerializeField]
+    private GameObject _batBody;
+
+    [SerializeField]
+    private ParticleSystem _ps;
+
     public int Blood
     {
         get { return _blood; }
@@ -25,6 +34,11 @@ public class Vampire : MonoBehaviour
             _blood = Mathf.Max(0, value);
             OnBloodChange(value);
         }
+    }
+
+    private void Awake()
+    {
+        SwitchState(VampireState.Human);
     }
 
     private void Update()
@@ -102,16 +116,20 @@ public class Vampire : MonoBehaviour
 
     private void SwitchState(VampireState newState)
     {
+        _ps.Emit(15);
+
         _state = newState;
 
         switch (newState)
         {
             case VampireState.Human:
-                GetComponent<Renderer>().enabled = true;
+                _vampireBody.SetActive(true);
+                _batBody.SetActive(false);
                 break;
 
             case VampireState.Bat:
-                GetComponent<Renderer>().enabled = false;
+                _vampireBody.SetActive(false);
+                _batBody.SetActive(true);
                 break;
 
             case VampireState.Worg:

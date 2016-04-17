@@ -14,9 +14,18 @@ public class SightBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject _exclamationMark;
 
-    private RaycastHit _info;
+    private RaycastHit _closestInfo;
+    private RaycastHit[] _hits;
+
     private Transform _t;
     private List<string> _detectableList;
+
+    private Transform _target;
+
+    public void SetTarget(Transform target)
+    {
+        _target = target;
+    }
 
     private void Awake()
     {
@@ -27,14 +36,41 @@ public class SightBehaviour : MonoBehaviour
 
     private void Update()
     {
-        bool hit = Physics.Raycast(new Ray(_t.position, _t.forward),out _info, MAX_DISTANCE);
-        if (hit)
+        //Debug.DrawLine(_t.position, _target.position);
+
+        var ray = new Ray(_t.position, (_target.position - _t.position).normalized);
+
+        Debug.DrawRay(_t.position, (_target.position - _t.position).normalized);
+
+        _hits = Physics.RaycastAll(ray, MAX_DISTANCE);
+
+        if (_hits.Length > 0)
         {
-            if (_detectableList.Contains(_info.collider.name))
+            _closestInfo = _hits[0];
+
+            // detect closest;
+            foreach (var h in _hits)
             {
+                if (Vector3.Distance(h.collider.transform.position, _t.position) <
+                    Vector3.Distance(_closestInfo.collider.transform.position, _t.position))
+                {
+                    _closestInfo = h;
+                }
+            }
+
+            //bool hit = Physics.Raycast(new Ray(_t.position, _t.forward),out _info, MAX_DISTANCE);
+
+            var angle = Vector3.Angle(
+                _t.forward,
+                (_closestInfo.collider.transform.position - _t.position).normalized);
+
+            if (_detectableList.Contains(_closestInfo.collider.name) && angle <= 90f)
+            {
+                Debug.Log(angle);
+
                 _exclamationMark.SetActive(true);
 
-                var vampire = _info.collider.GetComponentInParent<Vampire>();
+                var vampire = _closestInfo.collider.GetComponentInParent<Vampire>();
                 if (vampire != null)
                 {
                     vampire.enabled = false;
@@ -51,8 +87,9 @@ public class SightBehaviour : MonoBehaviour
 
                 this.enabled = false;
 
-                _t.GetChild(0).gameObject.layer = LayerMask.NameToLayer("UI");
-                OnDetected(_info.collider.name);
+                _t.LookAt(vampire.transform);
+                //_t.GetChild(0).gameObject.layer = LayerMask.NameToLayer("UI");
+                OnDetected(_closestInfo.collider.name);
             }
         }
     }

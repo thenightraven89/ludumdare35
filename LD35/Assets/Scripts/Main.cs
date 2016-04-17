@@ -35,6 +35,7 @@ public class Main : MonoBehaviour
         var seers = FindObjectsOfType<SightBehaviour>();
         foreach (var s in seers)
         {
+            s.SetTarget(vampire.transform);
             s.OnDetected += ui.GameOver;
         }
     }

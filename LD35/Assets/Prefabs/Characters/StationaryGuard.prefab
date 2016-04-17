@@ -8,12 +8,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443546}
-  - 114: {fileID: 11495550}
   - 114: {fileID: 11494198}
   - 135: {fileID: 13540252}
-  - 114: {fileID: 11490634}
+  - 114: {fileID: 11414806}
   m_Layer: 0
-  m_Name: PatrollingGuard
+  m_Name: StationaryGuard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +75,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 441550}
-  - 95: {fileID: 9564782}
   m_Layer: 0
   m_Name: guard
   m_TagString: Untagged
@@ -116,7 +114,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 441550}
@@ -214,24 +212,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139054}
   m_Mesh: {fileID: 4300000, guid: 3dbe6249bf9083649b9266e0fceca0c7, type: 3}
---- !u!95 &9564782
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 187880}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 080a944c36099194a9a469b1d2c5268c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11490634
+--- !u!114 &11414806
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -257,21 +238,6 @@ MonoBehaviour:
   _detectable:
   - vampire
   _exclamationMark: {fileID: 140042}
---- !u!114 &11495550
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 126360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25d86d03547d94c449a0f10d28fcb35b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  _speed: 0.75
 --- !u!135 &13540252
 SphereCollider:
   m_ObjectHideFlags: 1

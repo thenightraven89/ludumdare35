@@ -35,9 +35,14 @@ public class Vampire : MonoBehaviour
     [SerializeField]
     private ParticleSystem _ps;
 
+    [SerializeField]
+    private ParticleSystem _bloodPS;
+
     private Animator _vampireAnimator;
 
     private List<string> _items;
+
+    private const int MAX_BLOOD = 7;
 
     public int Blood
     {
@@ -45,8 +50,8 @@ public class Vampire : MonoBehaviour
 
         set
         {
-            _blood = Mathf.Max(0, value);
-            OnBloodChange(value);
+            _blood = Mathf.Clamp(value, 0, 7);
+            OnBloodChange(_blood);
         }
     }
 
@@ -94,6 +99,27 @@ public class Vampire : MonoBehaviour
             }
         }
 
+        if (inputFeed && !_isBusy && _state == VampireState.Human)
+        {
+            RaycastHit info;
+            var isObstacle = Physics.Raycast(
+                new Ray(transform.position + transform.forward + Vector3.up, Vector3.down),
+                out info);
+
+            if (isObstacle)
+            {
+                var victim = info.collider.GetComponent<VictimBehaviour>();
+                if (victim != null && victim.transform.forward == transform.forward)
+                {
+                    StartCoroutine(FeedCoroutine(victim));   
+                }
+                else
+                {
+                    OnSpeak("Can't feed from here.");
+                }
+            }
+        }
+
         if (inputMoveH != 0 && !_isBusy)
         {
             StartCoroutine(Move(new Vector3(Mathf.Sign(inputMoveH), 0, 0)));
@@ -114,6 +140,21 @@ public class Vampire : MonoBehaviour
                 _vampireAnimator.SetBool("Walk", false);
             }
         }
+    }
+
+    private IEnumerator FeedCoroutine(VictimBehaviour victim)
+    {
+        _isBusy = true;
+
+        _vampireAnimator.SetTrigger("Feed");
+
+        yield return new WaitForSeconds(.5f);
+        
+        _bloodPS.Emit(10);
+        Blood += victim.Life;
+        Destroy(victim.gameObject);
+
+        _isBusy = false;
     }
     
 

@@ -66,8 +66,6 @@ public class SightBehaviour : MonoBehaviour
 
             if (_detectableList.Contains(_closestInfo.collider.name) && angle <= 90f)
             {
-                Debug.Log(angle);
-
                 _exclamationMark.SetActive(true);
 
                 var vampire = _closestInfo.collider.GetComponentInParent<Vampire>();

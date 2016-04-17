@@ -22,6 +22,9 @@ public class UI : MonoBehaviour
     [SerializeField]
     private Text _voiceText;
 
+    [SerializeField]
+    private Image _curtain;
+
     private Coroutine _displayText;
 
     public void SetBlood(int value)
@@ -62,5 +65,28 @@ public class UI : MonoBehaviour
         yield return new WaitForSeconds(4f);
 
         _voiceCaption.SetActive(false);
+    }
+
+    public void SetCurtain(bool value, float time)
+    {
+        StartCoroutine(SetCurtainCoroutine(value, time));
+    }
+
+    private IEnumerator SetCurtainCoroutine(bool value, float time)
+    {
+        _curtain.enabled = true;
+
+        var fromColor = value ? new Color(0f, 0f, 0f, 0f) : Color.black;
+        var toColor = value ? Color.black : new Color(0f, 0f, 0f, 0f);
+
+        float t = 0;
+        while (t < time)
+        {
+            t += Time.deltaTime;
+            _curtain.color = Color.Lerp(fromColor, toColor, t / time);
+            yield return null;
+        }
+
+        _curtain.enabled = value;
     }
 }

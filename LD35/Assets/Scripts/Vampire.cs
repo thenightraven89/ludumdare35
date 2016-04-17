@@ -4,7 +4,7 @@ using UnityEngine;
 public class Vampire : MonoBehaviour
 {
     private bool _isBusy = false;
-    private const float MOVEMENT_SPEED = .025f;
+    private const float MOVEMENT_SPEED = .03f;
 
     public delegate void BloodChangeEvent(int value);
     public event BloodChangeEvent OnBloodChange = delegate { };
@@ -28,6 +28,8 @@ public class Vampire : MonoBehaviour
     [SerializeField]
     private ParticleSystem _ps;
 
+    private Animator _vampireAnimator;
+
     public int Blood
     {
         get { return _blood; }
@@ -41,6 +43,7 @@ public class Vampire : MonoBehaviour
 
     private void Awake()
     {
+        _vampireAnimator = _vampireBody.GetComponent<Animator>();
         SwitchState(VampireState.Human);
     }
 
@@ -83,19 +86,23 @@ public class Vampire : MonoBehaviour
 
         if (inputMoveH != 0 && !_isBusy)
         {
-            _vampireBody.GetComponent<Animator>().SetBool("Walk", true);
             StartCoroutine(Move(new Vector3(Mathf.Sign(inputMoveH), 0, 0)));
         }
         
         if (inputMoveV != 0 && !_isBusy)
         {
-            _vampireBody.GetComponent<Animator>().SetBool("Walk", true);
             StartCoroutine(Move(new Vector3(0, 0, Mathf.Sign(inputMoveV))));
         }
 
-        if (inputMoveH == 0 && inputMoveV == 0)
+        if (inputMoveH == 0 &&
+            inputMoveV == 0 &&
+            _state == VampireState.Human &&
+            _vampireBody.activeSelf)
         {
-            _vampireBody.GetComponent<Animator>().SetBool("Walk", false);
+            if (_vampireAnimator.GetBool("Walk"))
+            {
+                _vampireAnimator.SetBool("Walk", false);
+            }
         }
     }
     
@@ -115,6 +122,11 @@ public class Vampire : MonoBehaviour
             (_state == VampireState.Bat && Blood > 0 || _state != VampireState.Bat))
         {
             _isBusy = true;
+
+            if (_state == VampireState.Human && _vampireBody.activeSelf)
+            {
+                _vampireBody.GetComponent<Animator>().SetBool("Walk", true);
+            }
 
             while (transform.position != destination)
             {

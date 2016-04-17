@@ -7,23 +7,21 @@ public class Teleport: MonoBehaviour
     [SerializeField]
     private string _sceneName;
 
+    private const float LEVEL_LOAD_DELAY = 3f;
+
+    public delegate void CurtainEvent(bool state, float countdown);
+    public event CurtainEvent OnCurtain = delegate { };
+
     private void OnTriggerEnter(Collider other)
     {
         other.gameObject.SetActive(false);
-        StartCoroutine(TeleportCoroutine(_sceneName));
+        OnCurtain(true, LEVEL_LOAD_DELAY - 1f);
+        StartCoroutine(TeleportCoroutine(_sceneName, LEVEL_LOAD_DELAY));
     }
 
-    private IEnumerator TeleportCoroutine(string sceneName)
+    private IEnumerator TeleportCoroutine(string sceneName, float duration)
     {
-        var initialColor = RenderSettings.ambientLight;
-        float t = 0;
-        float duration = 3f;
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            RenderSettings.ambientLight = Color.Lerp(initialColor, Color.black, t / duration);
-            yield return null;
-        }
+        yield return new WaitForSeconds(duration);
 
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }

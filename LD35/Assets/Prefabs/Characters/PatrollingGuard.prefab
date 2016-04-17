@@ -223,7 +223,7 @@ Animator:
   m_GameObject: {fileID: 187880}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 080a944c36099194a9a469b1d2c5268c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 30814ee06c15cfe4eb125a05a2891a8e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -272,6 +272,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _speed: 0.75
+  _stationaryTime: 2
+  _animator: {fileID: 9564782}
 --- !u!135 &13540252
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -1,47 +1,48 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &141196
+--- !u!1 &117600
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 485276}
-  - 65: {fileID: 6561550}
-  - 114: {fileID: 11446864}
+  - 4: {fileID: 402792}
   m_Layer: 0
-  m_Name: GardenWall
+  m_Name: door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &180992
+--- !u!1 &176208
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 458092}
+  - 4: {fileID: 497396}
+  - 114: {fileID: 11464170}
+  - 65: {fileID: 6587528}
+  - 114: {fileID: 11418450}
   m_Layer: 0
-  m_Name: garden_wall
+  m_Name: ObsidianDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &198414
+--- !u!1 &190196
 GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 430134}
-  - 33: {fileID: 3301774}
-  - 23: {fileID: 2326400}
+  - 4: {fileID: 413010}
+  - 33: {fileID: 3340318}
+  - 23: {fileID: 2356034}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -49,55 +50,55 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &430134
+--- !u!4 &402792
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198414}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 458092}
-  m_RootOrder: 0
---- !u!4 &458092
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 180992}
+  m_GameObject: {fileID: 117600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 430134}
-  m_Father: {fileID: 485276}
+  - {fileID: 413010}
+  m_Father: {fileID: 497396}
   m_RootOrder: 0
---- !u!4 &485276
+--- !u!4 &413010
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 141196}
+  m_GameObject: {fileID: 190196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 402792}
+  m_RootOrder: 0
+--- !u!4 &497396
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 458092}
+  - {fileID: 402792}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2326400
+--- !u!23 &2356034
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198414}
+  m_GameObject: {fileID: 190196}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 91858d9641d038c49ae92ba732227130, type: 2}
+  - {fileID: 2100000, guid: 9ef5205cc1f115e4e9324d7f3b32ba83, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -113,40 +114,53 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3301774
+--- !u!33 &3340318
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198414}
-  m_Mesh: {fileID: 4300000, guid: 678f01f03305b554a9f418e69989ba62, type: 3}
---- !u!65 &6561550
+  m_GameObject: {fileID: 190196}
+  m_Mesh: {fileID: 4300000, guid: cb49019050677ab4692525ae8a5da0b9, type: 3}
+--- !u!65 &6587528
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 141196}
+  m_GameObject: {fileID: 176208}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11446864
+--- !u!114 &11418450
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 141196}
+  m_GameObject: {fileID: 176208}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33f017f6ab80a0b40a63601d852ea67f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _lines:
-  - Trimmed bushes. Fancy.
-  - I should hire a gardener...
-  - '...'
+  - It's locked.
+  - A key must be nearby...
+  - Too weak to fly over it.
+  - Hmm...
+--- !u!114 &11464170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5a22326a24a274fadcd9a0cbb1441e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: ObsidianKey
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -156,21 +170,25 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: _lines.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _lines.Array.data[0]
-      value: Trimmed bushes. Fancy.
+      value: It's locked.
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _lines.Array.data[1]
-      value: I should hire a gardener...
+      value: A key must be nearby...
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _lines.Array.data[2]
-      value: '...'
+      value: Too weak to fly over it.
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _lines.Array.data[3]
+      value: Hmm...
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 141196}
+  m_RootGameObject: {fileID: 176208}
   m_IsPrefabParent: 1

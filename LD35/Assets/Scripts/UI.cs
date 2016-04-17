@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI : MonoBehaviour
@@ -24,6 +26,14 @@ public class UI : MonoBehaviour
 
     [SerializeField]
     private Image _curtain;
+
+    [SerializeField]
+    private GameObject _gameOverText;
+
+    [SerializeField]
+    private RectTransform _keyBar;
+
+    private Dictionary<string, Image> _items;
 
     private Coroutine _displayText;
 
@@ -88,5 +98,41 @@ public class UI : MonoBehaviour
         }
 
         _curtain.enabled = value;
+    }
+
+    public void AddCollected(string name)
+    {
+        _items[name].gameObject.SetActive(true);
+    }
+
+    public void RemoveCollected(string name)
+    {
+        _items[name].gameObject.SetActive(false);
+    }
+
+    public void InitInventory()
+    {
+        _items = new Dictionary<string, Image>();
+
+        var allItems = _keyBar.GetComponentsInChildren<Image>(true);
+
+        foreach (var item in allItems)
+        {
+            _items.Add(item.gameObject.name, item);
+        }
+    }
+
+    public void GameOver(string intruder)
+    {
+        _gameOverText.SetActive(true);
+        SetCurtain(true, 2f);
+        SetVoiceText("INTRUDER ALERT!!!");
+        StartCoroutine(ReloadCoroutine(4.5f));
+    }
+
+    private IEnumerator ReloadCoroutine(float time)
+    {
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
 }

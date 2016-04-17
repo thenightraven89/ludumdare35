@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Vampire : MonoBehaviour
@@ -11,6 +12,12 @@ public class Vampire : MonoBehaviour
 
     public delegate void SpeakEvent(string value);
     public event SpeakEvent OnSpeak = delegate { };
+
+    public delegate void CollectedEvent(string name);
+    public event CollectedEvent OnCollected = delegate { };
+
+    public delegate void ConsumedEvent(string name);
+    public event ConsumedEvent OnConsumed = delegate { };
 
     private VampireState _state;
 
@@ -30,6 +37,8 @@ public class Vampire : MonoBehaviour
 
     private Animator _vampireAnimator;
 
+    private List<string> _items;
+
     public int Blood
     {
         get { return _blood; }
@@ -43,6 +52,7 @@ public class Vampire : MonoBehaviour
 
     private void Awake()
     {
+        _items = new List<string>();
         _vampireAnimator = _vampireBody.GetComponent<Animator>();
         SwitchState(VampireState.Human);
     }
@@ -118,6 +128,20 @@ public class Vampire : MonoBehaviour
             new Ray(destination + Vector3.up, Vector3.down),
             out info);
 
+        if (hit && !info.collider.isTrigger)
+        {
+            var lockBehaviour = info.collider.gameObject.GetComponent<LockBehaviour>();
+            if (lockBehaviour != null)
+            {
+                if (_items.Contains(lockBehaviour.Key))
+                {
+                    OnConsumed(lockBehaviour.Key);
+                    _items.Remove(lockBehaviour.Key);
+                    Destroy(info.collider.gameObject);
+                }
+            }
+        }
+
         if ((!hit || hit && info.collider.isTrigger) &&
             (_state == VampireState.Bat && Blood > 0 || _state != VampireState.Bat))
         {
@@ -172,6 +196,27 @@ public class Vampire : MonoBehaviour
 
             case VampireState.Worg:
                 break;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var collectable = other.GetComponent<CollectableBehaviour>();
+        if (collectable != null)
+        {
+            var obj = other.gameObject;
+            _items.Add(obj.name);
+            OnCollected(obj.name);
+            Destroy(obj);
+        }
+    }
+
+    internal void StopAnimation()
+    {
+        var animators = GetComponentsInChildren<Animator>();
+        foreach (var a in animators)
+        {
+            a.Stop();
         }
     }
 

@@ -109,6 +109,14 @@ public class Vampire : MonoBehaviour
             if (isObstacle)
             {
                 var victim = info.collider.GetComponent<VictimBehaviour>();
+
+                var virgin = info.collider.GetComponent<VirginBehaviour>();
+
+                if (virgin != null)
+                {
+                    OnSpeak(virgin.Text);
+                }
+
                 if (victim != null && victim.transform.forward == transform.forward)
                 {
                     StartCoroutine(FeedCoroutine(victim));   

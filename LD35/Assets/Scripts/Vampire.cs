@@ -265,7 +265,7 @@ public class Vampire : MonoBehaviour
         var animators = GetComponentsInChildren<Animator>();
         foreach (var a in animators)
         {
-            a.Stop();
+			a.enabled = false;
         }
     }
 

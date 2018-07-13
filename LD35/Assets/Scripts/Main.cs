@@ -17,7 +17,7 @@ public class Main : MonoBehaviour
         ui.InitInventory();
         ui.SetLocation(_location);
         ui.SetVoiceText(_vampireThoughts);
-        ui.SetCurtain(false, 1f);
+        ui.UnveilCurtain();
 
         var vampire = FindObjectOfType<Vampire>();
         vampire.OnBloodChange += ui.SetBlood;
@@ -29,7 +29,7 @@ public class Main : MonoBehaviour
         var teleports = FindObjectsOfType<Teleport>();
         foreach (var t in teleports)
         {
-            t.OnCurtain += ui.SetCurtain;
+            t.OnCheckpoint += ui.LevelComplete;
         }
 
         var seers = FindObjectsOfType<SightBehaviour>();

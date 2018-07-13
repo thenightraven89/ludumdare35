@@ -33,6 +33,12 @@ public class UI : MonoBehaviour
     [SerializeField]
     private RectTransform _keyBar;
 
+    [SerializeField]
+    private AudioClip _failSfx;
+
+    [SerializeField]
+    private AudioClip _successSfx;
+
     private Dictionary<string, Image> _items;
 
     private Coroutine _displayText;
@@ -77,7 +83,7 @@ public class UI : MonoBehaviour
         _voiceCaption.SetActive(false);
     }
 
-    public void SetCurtain(bool value, float time)
+    private void SetCurtain(bool value, float time)
     {
         StartCoroutine(SetCurtainCoroutine(value, time));
     }
@@ -122,17 +128,30 @@ public class UI : MonoBehaviour
         }
     }
 
+    public void UnveilCurtain()
+    {
+        SetCurtain(false, 1f);
+    }
+
+    public void LevelComplete(string nextLevel)
+    {
+        SetCurtain(true, 2f);
+        StartCoroutine(LoadLevelCoroutine(nextLevel, 3f));
+        GetComponent<AudioSource>().PlayOneShot(_successSfx);
+    }
+
     public void GameOver(string intruder)
     {
         _gameOverText.SetActive(true);
         SetCurtain(true, 2f);
+        GetComponent<AudioSource>().PlayOneShot(_failSfx);
         SetVoiceText("INTRUDER ALERT!!!");
-        StartCoroutine(ReloadCoroutine(4.5f));
+        StartCoroutine(LoadLevelCoroutine(SceneManager.GetActiveScene().name, 4.5f));
     }
 
-    private IEnumerator ReloadCoroutine(float time)
+    private IEnumerator LoadLevelCoroutine(string sceneName, float duration)
     {
-        yield return new WaitForSeconds(time);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        yield return new WaitForSeconds(duration);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 }

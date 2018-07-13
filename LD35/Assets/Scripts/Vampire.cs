@@ -69,6 +69,7 @@ public class Vampire : MonoBehaviour
         var inputInteract = Input.GetButtonDown("Interact");
         var inputBat = Input.GetButtonDown("Bat");
         var inputFeed = Input.GetButtonDown("Feed");
+        var inputExit = Input.GetButtonDown("Escape");
 
         if (inputBat && !_isBusy)
         {
@@ -147,6 +148,11 @@ public class Vampire : MonoBehaviour
             {
                 _vampireAnimator.SetBool("Walk", false);
             }
+        }
+
+        if (inputExit)
+        {
+            Application.Quit();
         }
     }
 
@@ -265,7 +271,7 @@ public class Vampire : MonoBehaviour
         var animators = GetComponentsInChildren<Animator>();
         foreach (var a in animators)
         {
-            a.Stop();
+            a.enabled = false;
         }
     }
 

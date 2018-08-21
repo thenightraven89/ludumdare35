@@ -271,7 +271,11 @@ public class Vampire : MonoBehaviour
         var animators = GetComponentsInChildren<Animator>();
         foreach (var a in animators)
         {
+<<<<<<< HEAD
             a.enabled = false;
+=======
+			a.enabled = false;
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
         }
     }
 

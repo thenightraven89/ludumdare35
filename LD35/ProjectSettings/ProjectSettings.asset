@@ -3,11 +3,18 @@
 --- !u!129 &1
 PlayerSettings:
   m_ObjectHideFlags: 0
+<<<<<<< HEAD
   serializedVersion: 15
   productGUID: 9b65a2380963c974ca6352226bc3b9a1
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
+=======
+  serializedVersion: 13
+  productGUID: 9b65a2380963c974ca6352226bc3b9a1
+  AndroidProfiler: 0
+  AndroidFilterTouchesWhenObscured: 0
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   defaultScreenOrientation: 4
   targetDevice: 2
   useOnDemandResources: 0
@@ -65,6 +72,10 @@ PlayerSettings:
   preserveFramebufferAlpha: 0
   disableDepthAndStencilBuffers: 0
   androidBlitType: 0
+<<<<<<< HEAD
+=======
+  defaultIsFullScreen: 1
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
   runInBackground: 0
@@ -72,8 +83,11 @@ PlayerSettings:
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
   Force IOS Speakers When Recording: 0
+<<<<<<< HEAD
   deferSystemGesturesMode: 0
   hideHomeButton: 0
+=======
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   submitAnalytics: 1
   usePlayerLog: 1
   bakeCollisionMeshes: 0
@@ -91,7 +105,13 @@ PlayerSettings:
   visibleInBackground: 0
   allowFullscreenSwitch: 1
   graphicsJobMode: 0
+<<<<<<< HEAD
   fullscreenMode: 1
+=======
+  macFullscreenMode: 2
+  d3d9FullscreenMode: 1
+  d3d11FullscreenMode: 1
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -100,14 +120,22 @@ PlayerSettings:
   n3dsDisableStereoscopicView: 0
   n3dsEnableSharedListOpt: 1
   n3dsEnableVSync: 0
+<<<<<<< HEAD
   xboxOneResolution: 0
   xboxOneSResolution: 0
   xboxOneXResolution: 3
+=======
+  ignoreAlphaClear: 0
+  xboxOneResolution: 0
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   xboxOneMonoLoggingLevel: 0
   xboxOneLoggingLevel: 1
   xboxOneDisableEsram: 0
   xboxOnePresentImmediateThreshold: 0
+<<<<<<< HEAD
   switchQueueCommandMemory: 0
+=======
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   videoMemoryForVertexBuffers: 0
   psp2PowerMode: 0
   psp2AcquireBGM: 1
@@ -120,7 +148,10 @@ PlayerSettings:
   bundleVersion: 1.0
   preloadedAssets: []
   metroInputSource: 0
+<<<<<<< HEAD
   wsaTransparentSwapchain: 0
+=======
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   m_HolographicPauseOnTrackingLoss: 1
   xboxOneDisableKinectGpuReservation: 0
   xboxOneEnable7thCore: 0
@@ -133,6 +164,7 @@ PlayerSettings:
       useSustainedPerformanceMode: 0
       enableVideoLayer: 0
       useProtectedVideoMemory: 0
+<<<<<<< HEAD
       minimumSupportedHeadTracking: 0
       maximumSupportedHeadTracking: 1
     hololens:
@@ -146,6 +178,14 @@ PlayerSettings:
   useHDRDisplay: 0
   m_ColorGamuts: 00000000
   targetPixelDensity: 30
+=======
+    hololens:
+      depthFormat: 1
+  protectGraphicsMemory: 0
+  useHDRDisplay: 0
+  m_ColorGamuts: 00000000
+  targetPixelDensity: 0
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
@@ -173,7 +213,11 @@ PlayerSettings:
   StripUnusedMeshComponents: 0
   VertexChannelCompressionMask: 214
   iPhoneSdkVersion: 988
+<<<<<<< HEAD
   iOSTargetOSVersionString: 8.0
+=======
+  iOSTargetOSVersionString: 7.0
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0
   tvOSTargetOSVersionString: 9.0
@@ -202,9 +246,13 @@ PlayerSettings:
   tvOSLargeIconLayers: []
   tvOSLargeIconLayers2x: []
   tvOSTopShelfImageLayers: []
+<<<<<<< HEAD
   tvOSTopShelfImageLayers2x: []
   tvOSTopShelfImageWideLayers: []
   tvOSTopShelfImageWideLayers2x: []
+=======
+  tvOSTopShelfImageWideLayers: []
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   iOSLaunchScreenType: 0
   iOSLaunchScreenPortrait: {fileID: 0}
   iOSLaunchScreenLandscape: {fileID: 0}
@@ -234,6 +282,7 @@ PlayerSettings:
   appleDeveloperTeamID: 
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
+<<<<<<< HEAD
   iOSManualSigningProvisioningProfileType: 0
   tvOSManualSigningProvisioningProfileType: 0
   appleEnableAutomaticSigning: 0
@@ -243,6 +292,10 @@ PlayerSettings:
   templatePackageId: 
   templateDefaultScene: 
   AndroidTargetArchitectures: 5
+=======
+  appleEnableAutomaticSigning: 0
+  AndroidTargetDevice: 0
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: 
@@ -270,6 +323,7 @@ PlayerSettings:
   mobileMTRendering:
     iPhone: 1
     tvOS: 1
+<<<<<<< HEAD
   m_BuildTargetGroupLightmapEncodingQuality:
   - m_BuildTarget: Standalone
     m_EncodingQuality: 1
@@ -279,6 +333,27 @@ PlayerSettings:
     m_EncodingQuality: 1
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0
+=======
+  wiiUTitleID: 0005000011000000
+  wiiUGroupID: 00010000
+  wiiUCommonSaveSize: 4096
+  wiiUAccountSaveSize: 2048
+  wiiUOlvAccessKey: 0
+  wiiUTinCode: 0
+  wiiUJoinGameId: 0
+  wiiUJoinGameModeMask: 0000000000000000
+  wiiUCommonBossSize: 0
+  wiiUAccountBossSize: 0
+  wiiUAddOnUniqueIDs: []
+  wiiUMainThreadStackSize: 3072
+  wiiULoaderThreadStackSize: 1024
+  wiiUSystemHeapSize: 128
+  wiiUTVStartupScreen: {fileID: 0}
+  wiiUGamePadStartupScreen: {fileID: 0}
+  wiiUDrcBufferDisabled: 0
+  wiiUProfilerLibPath: 
+  playModeTestRunnerEnabled: 0
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   actionOnDotNetUnhandledException: 1
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
@@ -306,9 +381,12 @@ PlayerSettings:
   switchTitleNames_9: 
   switchTitleNames_10: 
   switchTitleNames_11: 
+<<<<<<< HEAD
   switchTitleNames_12: 
   switchTitleNames_13: 
   switchTitleNames_14: 
+=======
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   switchPublisherNames_0: 
   switchPublisherNames_1: 
   switchPublisherNames_2: 
@@ -321,9 +399,12 @@ PlayerSettings:
   switchPublisherNames_9: 
   switchPublisherNames_10: 
   switchPublisherNames_11: 
+<<<<<<< HEAD
   switchPublisherNames_12: 
   switchPublisherNames_13: 
   switchPublisherNames_14: 
+=======
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   switchIcons_0: {fileID: 0}
   switchIcons_1: {fileID: 0}
   switchIcons_2: {fileID: 0}
@@ -336,9 +417,12 @@ PlayerSettings:
   switchIcons_9: {fileID: 0}
   switchIcons_10: {fileID: 0}
   switchIcons_11: {fileID: 0}
+<<<<<<< HEAD
   switchIcons_12: {fileID: 0}
   switchIcons_13: {fileID: 0}
   switchIcons_14: {fileID: 0}
+=======
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   switchSmallIcons_0: {fileID: 0}
   switchSmallIcons_1: {fileID: 0}
   switchSmallIcons_2: {fileID: 0}
@@ -351,9 +435,12 @@ PlayerSettings:
   switchSmallIcons_9: {fileID: 0}
   switchSmallIcons_10: {fileID: 0}
   switchSmallIcons_11: {fileID: 0}
+<<<<<<< HEAD
   switchSmallIcons_12: {fileID: 0}
   switchSmallIcons_13: {fileID: 0}
   switchSmallIcons_14: {fileID: 0}
+=======
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   switchManualHTML: 
   switchAccessibleURLs: 
   switchLegalInformation: 
@@ -395,8 +482,11 @@ PlayerSettings:
   switchLocalCommunicationIds_7: 
   switchParentalControl: 0
   switchAllowsScreenshot: 1
+<<<<<<< HEAD
   switchAllowsVideoCapturing: 1
   switchAllowsRuntimeAddOnContentInstall: 0
+=======
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   switchDataLossConfirmation: 0
   switchSupportedNpadStyles: 3
   switchSocketConfigEnabled: 0
@@ -454,13 +544,20 @@ PlayerSettings:
   ps4pnFriends: 1
   ps4pnGameCustomData: 1
   playerPrefsSupport: 0
+<<<<<<< HEAD
   enableApplicationExit: 0
+=======
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   restrictedAudioUsageRights: 0
   ps4UseResolutionFallback: 0
   ps4ReprojectionSupport: 0
   ps4UseAudio3dBackend: 0
   ps4SocialScreenEnabled: 0
+<<<<<<< HEAD
   ps4ScriptOptimizationLevel: 2
+=======
+  ps4ScriptOptimizationLevel: 0
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   ps4Audio3dVirtualSpeakerCount: 14
   ps4attribCpuUsage: 0
   ps4PatchPkgPath: 
@@ -524,7 +621,12 @@ PlayerSettings:
   psp2UseLibLocation: 0
   psp2InfoBarOnStartup: 0
   psp2InfoBarColor: 0
+<<<<<<< HEAD
   psp2ScriptOptimizationLevel: 2
+=======
+  psp2ScriptOptimizationLevel: 0
+  psmSplashimage: {fileID: 0}
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   splashScreenBackgroundSourceLandscape: {fileID: 0}
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   spritePackerPolicy: 
@@ -538,8 +640,13 @@ PlayerSettings:
   webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
+<<<<<<< HEAD
   webGLCompressionFormat: 1
   webGLLinkerTarget: 0
+=======
+  webGLUseWasm: 0
+  webGLCompressionFormat: 1
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   scriptingDefineSymbols: {}
   platformArchitecture: {}
   scriptingBackend:
@@ -547,9 +654,13 @@ PlayerSettings:
     Standalone: 0
     WebGL: 1
     WebPlayer: 0
+<<<<<<< HEAD
   il2cppCompilerConfiguration: {}
   incrementalIl2cppBuild: {}
   allowUnsafeCode: 0
+=======
+  incrementalIl2cppBuild: {}
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 0
   apiCompatibilityLevelPerPlatform: {}
@@ -622,7 +733,10 @@ PlayerSettings:
   XboxOneSplashScreen: {fileID: 0}
   XboxOneAllowedProductIds: []
   XboxOnePersistentLocalStorageSize: 0
+<<<<<<< HEAD
   XboxOneXTitleMemory: 8
+=======
+>>>>>>> 4a6f059e2e21424d3edd0ff148564bd87427e2cf
   xboxOneScriptCompiler: 0
   vrEditorSettings:
     daydream:
